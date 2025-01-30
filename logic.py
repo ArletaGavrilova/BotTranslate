@@ -19,7 +19,16 @@ class TextAnalysis():
         self.translation = self.__translate(self.text, "ru", "en")
 
         # Задание №6
-        self.response = self.get_answer()
+        qwestions = {'как тебя зовут' : "Я супер-крутой-бот и мое ппредназначение помогать тебе!",
+                    "сколько тебе лет" : "Это слишком философский вопрос"}
+
+        qwestions = defaultdict(list)
+
+        if self.text.lower() in qwestions.keys():
+            self.response = defaultdict(list)
+        else:
+            self.response = self.get_answer() 
+
 
     
     def get_answer(self):
